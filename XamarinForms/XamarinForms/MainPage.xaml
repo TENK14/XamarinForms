@@ -4,8 +4,23 @@
              xmlns:local="clr-namespace:XamarinForms"
              x:Class="XamarinForms.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout VerticalOptions="Center" 
+           HorizontalOptions="Center">
+        <Label Text="Nová položka" 
+           VerticalOptions="Start" 
+           HorizontalOptions="StartAndExpand" />
+        <StackLayout Orientation="Horizontal">
+        <Editor ClassId="Editor01" x:Name="EditorNewItem" Text="Editor"
+           HorizontalOptions="Expand" />
+            <Button x:Name="BtnAdd" Text="Přidat" Clicked="BtnAdd_Clicked_Handler" />
+        </StackLayout>
+        <Slider x:Name="SliderSize"></Slider>
+        <!--VerticalOptions="End"-->
+        <ListView x:Name="ListViewData" 
+                  ItemsSource="{Binding Data}"
+                  ItemSelected="ListViewData_ItemSelected" >
+        </ListView>
 
+
+    </StackLayout>
 </ContentPage>
