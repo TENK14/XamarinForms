@@ -14,11 +14,27 @@
            HorizontalOptions="Expand" />
             <Button x:Name="BtnAdd" Text="Přidat" Clicked="BtnAdd_Clicked_Handler" />
         </StackLayout>
+        <!-- How to bind FontSize of Label inside a ListView -->
+        <!-- https://stackoverflow.com/questions/32176888/how-to-bind-fontsize-of-label-inside-a-listview -->
         <Slider x:Name="SliderSize"></Slider>
         <!--VerticalOptions="End"-->
+        <!--<ListView x:Name="ListViewData" 
+                  ItemsSource="{Binding Data}"
+                  ItemSelected="ListViewData_ItemSelected" >
+        </ListView>-->
+
+        <!-- https://stackoverflow.com/questions/32176888/how-to-bind-fontsize-of-label-inside-a-listview -->
+        <!-- https://github.com/mattregul/XAMLListviewFontSize -->
         <ListView x:Name="ListViewData" 
                   ItemsSource="{Binding Data}"
                   ItemSelected="ListViewData_ItemSelected" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
 
